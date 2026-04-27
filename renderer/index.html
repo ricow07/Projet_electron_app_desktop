@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>LabyMaker - Asus TUF</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="card" id="main-card">
+        <h1>🧭 LabyMaker</h1>
+        <p id="db-status">Initialisation...</p>
+        <hr>
+
+        <div id="auth-section">
+            <h3>Connexion / Inscription</h3>
+            <input type="text" id="username" placeholder="Nom d'utilisateur"><br>
+            <input type="password" id="password" placeholder="Mot de passe"><br><br>
+            <button id="btn-login">Se connecter</button>
+            <button id="btn-register">S'inscrire</button>
+        </div>
+
+        <div id="game-section" style="display: none;">
+            <h3>Générateur</h3>
+            <div class="controls">
+                <select id="maze-size">
+                    <option value="15">Petit (15x15)</option>
+                    <option value="25" selected>Moyen (25x25)</option>
+                    <option value="41">Grand (41x41)</option>
+                </select>
+                <button id="btn-generate">Générer</button>
+                <button id="btn-solve" style="background: #ffcc00; color: black;">Résoudre</button>
+            </div>
+            <canvas id="mazeCanvas" width="400" height="400"></canvas>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

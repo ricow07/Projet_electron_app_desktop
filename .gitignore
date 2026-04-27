@@ -1,0 +1,9 @@
+# Dépendances (le dossier lourd)
+node_modules/
+
+# Base de données locale (données de test)
+labyrinthe.db
+
+# Fichiers système
+.DS_Store
+Thumbs.db
