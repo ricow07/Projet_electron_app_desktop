@@ -1,10 +1,21 @@
 {
-  "name": "projet-labyrinthe",
+  "name": "labymaker",
   "version": "1.0.0",
-  "description": "Application de création et résolution de labyrinthes",
+  "description": "Generateur et solveur de labyrinthes",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-builder --win"
+  },
+  "build": {
+    "appId": "com.projet.labymaker",
+    "productName": "LabyMaker",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "nsis"
+    }
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -12,6 +23,7 @@
     "sqlite3": "^5.1.7"
   },
   "devDependencies": {
-    "electron": "^29.0.0"
+    "electron": "^29.0.0",
+    "electron-builder": "^24.13.3"
   }
 }
