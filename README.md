@@ -1,38 +1,35 @@
 # Présentation du projet LabyMaker
 
-Ce projet consiste en une application de bureau développée avec le framework Electron. Elle a pour objectif principal de générer des labyrinthes et de proposer une solution de résolution automatique.
+Ce projet est une application d'ordinateur créée avec Electron. Son but principal est de fabriquer des labyrinthes et de montrer comment les résoudre automatiquement.
 
+## Ce que fait l'application
 
-## Fonctionnalités principales de l'application
+L'application possède un système pour s'inscrire et se connecter en toute sécurité. Les mots de passe sont cachés avec un code spécial pour protéger les informations des joueurs dans notre base de données.
 
-L'application propose un système d'authentification complet qui permet aux utilisateurs de créer un compte et de se connecter de manière sécurisée. Les mots de passe sont protégés par un algorithme de hachage afin de garantir la confidentialité des données stockées dans la base de données SQLite3.
+Pour créer les labyrinthes, le jeu utilise un calcul mathématique qui fait des labyrinthes parfaits. Ça veut dire qu'il y a toujours un seul bon chemin entre le point de départ et l'arrivée. Il y a aussi un outil qui calcule et dessine le chemin le plus rapide pour gagner si on est bloqué.
 
-Le moteur de génération utilise un algorithme de parcours pour créer des labyrinthes parfaits, ce qui signifie qu'il existe toujours un chemin unique entre l'entrée et la sortie. Un outil de résolution est également intégré pour tracer le chemin le plus court entre deux points de la grille.
+## Comment installer et jouer
 
+Pour mettre le projet sur votre ordinateur, il faut télécharger le dossier et ouvrir le terminal. Ensuite, il faut taper la commande npm install pour télécharger tous les petits outils nécessaires au fonctionnement.
 
-## Instructions pour l'installation et l'utilisation
+Quand c'est fini, vous pouvez lancer le jeu en tapant npm start. Une fenêtre va s'ouvrir et vous pourrez commencer à jouer et à créer des niveaux.
 
-Pour installer le projet sur votre ordinateur, vous devez d'abord cloner le dépôt distant puis vous rendre dans le dossier principal. Il est ensuite nécessaire d'installer les dépendances logicielles en utilisant la commande npm install dans votre terminal.
+## Comment le code est rangé
 
-Une fois l'installation terminée, vous pouvez lancer l'interface utilisateur en saisissant la commande npm start. L'application s'ouvrira dans une nouvelle fenêtre et vous pourrez commencer à utiliser les outils de génération.
+Le code est découpé en plusieurs parties pour que ce soit propre et bien organisé. Voici à quoi servent les différents fichiers et dossiers de mon projet.
 
+Le fichier main.js est le point de départ. C'est lui qui ouvre la fenêtre du jeu et qui fait discuter l'affichage avec le système en arrière-plan.
 
-## Structure du projet et utilité des fichiers
+Le fichier database.js prépare la base de données locale. Il crée l'espace de stockage où on va ranger les comptes des utilisateurs.
 
-Le code est organisé de façon modulaire pour séparer la logique du système, les algorithmes de calcul et l'interface visuelle. Voici le détail des fichiers composant cette application.
+Le fichier auth.js gère toute la sécurité. Il s'occupe de créer les comptes, de vérifier les identifiants quand on se connecte et de crypter les mots de passe.
 
-Le fichier main.js est le point d'entrée de l'application. Il gère la création de la fenêtre principale et assure la communication entre l'interface visuelle et les processus en arrière-plan.
+Le fichier labyrinth.js est le cerveau mathématique du jeu. C'est lui qui calcule comment placer les murs au hasard et comment trouver la sortie.
 
-Le fichier database.js s'occupe de la configuration de la base de données locale. Il prépare l'espace de stockage sécurisé pour les informations des utilisateurs.
+Le dossier renderer contient tout ce que l'utilisateur voit à l'écran. Dedans, le fichier index.html construit la structure de la page, et le fichier style.css met les couleurs et s'occupe de la décoration. Le fichier app.js fait l'animation : il réagit aux clics, écoute le clavier pour faire bouger le joueur et dessine le jeu.
 
-Le fichier auth.js centralise toutes les fonctions liées à la sécurité. Il gère la logique d'inscription, la vérification des identifiants lors de la connexion et le chiffrement des mots de passe.
+Le fichier package.json est la carte d'identité du projet. Il fait la liste des outils externes qu'on utilise et donne les commandes pour lancer la compilation.
 
-Le fichier labyrinth.js contient l'intelligence mathématique du projet. Il regroupe l'algorithme de création aléatoire du labyrinthe et le système de recherche du chemin le plus court pour la résolution.
+Le dossier node_modules se crée tout seul quand on installe le projet. Il contient toutes les bibliothèques téléchargées pour faire marcher le jeu, comme Electron par exemple. Il est très lourd et il ne faut pas y toucher.
 
-Le dossier renderer contient la partie directement visible par l'utilisateur. Le fichier index.html y définit la structure de la page, tandis que le fichier style.css applique l'apparence visuelle et les couleurs.
-
-Le fichier app.js, situé également dans le dossier renderer, est le moteur interactif de l'interface. Il écoute les clics sur les boutons, transmet les requêtes au système et se charge de dessiner la grille colorée sur l'écran.
-
-Le fichier package.json sert de carte d'identité au projet. Il liste toutes les bibliothèques externes nécessaires au bon fonctionnement du code et définit les commandes de lancement.
-
-Le fichier .gitignore est une consigne stricte pour le gestionnaire de versions. Il empêche l'envoi des dossiers trop lourds ou des bases de données locales vers le dépôt distant.
+Le dossier dist est le dossier final. Il apparaît seulement quand on fabrique la vraie version du jeu. C'est là-dedans qu'on trouve le vrai fichier exécutable pour lancer l'application d'un simple double-clic, comme un vrai jeu, sans avoir besoin d'ouvrir le code.
