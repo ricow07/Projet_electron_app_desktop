@@ -2,37 +2,80 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>LabyMaker - Asus TUF</title>
+    <title>LabyMaker - Accueil</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="card" id="main-card">
-        <h1>🧭 LabyMaker</h1>
-        <p id="db-status">Initialisation...</p>
-        <hr>
+    <div id="main-card">
+        <section id="welcome-section">
+            <h1>Bienvenue sur LabyMaker</h1>
+            
+            <div class="info-box">
+                <h2>Règles du jeu</h2>
+                <p>LabyMaker est un défi d'intelligence et de repérage spatial. Votre objectif est de naviguer à travers un labyrinthe généré aléatoirement pour relier l'entrée à la sortie.</p>
+                <ul>
+                    <li>L'entrée est représentée par un carré vert en haut à gauche.</li>
+                    <li>La sortie est représentée par un carré rouge en bas à droite.</li>
+                    <li>Les chemins praticables sont sombres, tandis que les murs sont de couleur bleu néon.</li>
+                    <li>Si vous ne trouvez pas la solution, vous pouvez utiliser l'outil de résolution automatique.</li>
+                </ul>
+            </div>
 
-        <div id="auth-section">
-            <h3>Connexion / Inscription</h3>
-            <input type="text" id="username" placeholder="Nom d'utilisateur"><br>
-            <input type="password" id="password" placeholder="Mot de passe"><br><br>
-            <button id="btn-login">Se connecter</button>
-            <button id="btn-register">S'inscrire</button>
-        </div>
+            <div class="levels-container">
+                <div class="level-card facile">
+                    <h3>Niveau Facile</h3>
+                    <p>Une petite grille de 15x15 cases. Idéal pour comprendre les bases et s'échauffer rapidement.</p>
+                </div>
+                <div class="level-card intermediaire">
+                    <h3>Intermédiaire</h3>
+                    <p>Une grille de 25x25 cases. Les chemins sont plus nombreux et demandent une analyse plus attentive.</p>
+                </div>
+                <div class="level-card difficile">
+                    <h3>Niveau Difficile</h3>
+                    <p>Une grille de 45x45 cases. Un véritable défi visuel avec des dizaines de fausses pistes possibles.</p>
+                </div>
+            </div>
 
-        <div id="game-section" style="display: none;">
-            <h3>Générateur</h3>
+            <button id="btn-start" class="btn-main">Accéder à la connexion</button>
+        </section>
+
+        <section id="auth-section" style="display: none;">
+            <h2>Identification</h2>
+            <div class="input-group">
+                <input type="text" id="username" placeholder="Nom d'utilisateur">
+                <input type="password" id="password" placeholder="Mot de passe">
+            </div>
+            <div class="button-group">
+                <button id="btn-login">Connexion</button>
+                <button id="btn-register">Inscription</button>
+            </div>
+            <p id="db-status"></p>
+        </section>
+
+        <section id="game-section" style="display: none;">
+            <h2>Générateur</h2>
             <div class="controls">
                 <select id="maze-size">
-                    <option value="15">Petit (15x15)</option>
-                    <option value="25" selected>Moyen (25x25)</option>
-                    <option value="41">Grand (41x41)</option>
+                    <option value="15">Niveau Facile (15x15)</option>
+                    <option value="25" selected>Intermédiaire (25x25)</option>
+                    <option value="45">Niveau Difficile (45x45)</option>
                 </select>
                 <button id="btn-generate">Générer</button>
-                <button id="btn-solve" style="background: #ffcc00; color: black;">Résoudre</button>
+                <button id="btn-solve">Résoudre</button>
             </div>
+            <p style="font-size: 0.9em; margin-bottom: 10px;">Utilisez les flèches directionnelles (ou ZQSD) pour vous déplacer.</p>
             <canvas id="mazeCanvas" width="400" height="400"></canvas>
+        </section>
+    </div>
+
+    <div id="victory-screen" style="display: none;">
+        <div class="victory-box">
+            <h2>🎉 Niveau Terminé ! 🎉</h2>
+            <p>Félicitations, vous avez trouvé la sortie ! .</p>
+            <button id="btn-replay">Rejouer un niveau</button>
         </div>
     </div>
+
     <script src="app.js"></script>
 </body>
 </html>
