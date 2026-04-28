@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-builder --win"
+    "build": "electron-packager . LabyMaker --platform=win32 --arch=x64 --out=dist --overwrite"
   },
   "build": {
     "appId": "com.projet.labymaker",
@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "electron": "^29.0.0",
-    "electron-builder": "^24.13.3"
+    "electron-builder": "^24.13.3",
+    "electron-packager": "^17.1.2"
   }
 }
