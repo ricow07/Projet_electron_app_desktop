@@ -127,7 +127,6 @@ document.addEventListener('keydown', (e) => {
         if (playerPos.x === size - 2 && playerPos.y === size - 2) {
             gameActive = false;
             
-            // Fait apparaitre le bel écran au lieu de l'alerte moche
             setTimeout(() => {
                 victoryScreen.style.display = 'flex';
             }, 100);
